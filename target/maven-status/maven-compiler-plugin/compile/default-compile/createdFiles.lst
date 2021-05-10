@@ -1,0 +1,7 @@
+com\utils\ExcelReader.class
+com\mypages\LoginPage.class
+com\mypages\DiscussionPage.class
+com\utils\ConfigReader.class
+com\mypages\base.class
+com\utils\ExtentReport.class
+com\utils\ScreenShot.class

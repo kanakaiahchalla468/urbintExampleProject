@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <parameter name="keyword" value="mabl"/>
+  <listeners>
+    <listener class-name="myTests.Listeners"/>
+  </listeners>
+  <test parallel="none" name="Test(failed)">
+    <parameter name="keyword" value="mabl"/>
+    <classes>
+      <class name="myTests.baseTestClass">
+        <methods>
+          <include name="tearDown"/>
+          <include name="sample"/>
+          <include name="InValidLogin"/>
+          <include name="verifySearchResults"/>
+          <include name="ValidLogin"/>
+        </methods>
+      </class> <!-- myTests.baseTestClass -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
