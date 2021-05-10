@@ -69,6 +69,8 @@ public class baseTestClass extends base {
         login.verifyJoinNowButtonisVisible();
         login.verifySupportButtonisVisible();
         login.verifyDropDownValuesUnderSupportButton();
+        login.verifyUserRemeberMeCheckBoxisntSelected();
+        login.verifyTextDisplayedAtRemeberMeCheckBox();
 
     }
 
@@ -113,8 +115,6 @@ public class baseTestClass extends base {
 
         int rows = excel.getRowCount(0);
         int column = excel.getColoumCount(0);
-        System.out.println(column);
-        System.out.println(rows);
         Object[][] data = new Object[rows - 1][column];
         for (int i = 1; i < rows; i++) {
             for (int j = 0; j < column; j++) {
@@ -137,8 +137,6 @@ public class baseTestClass extends base {
 
         int rows = excel.getRowCount(1);
         int column = excel.getColoumCount(1);
-        System.out.println(column);
-        System.out.println(rows);
         Object[][] data = new Object[rows - 1][column];
         for (int i = 1; i < rows; i++) {
             for (int j = 0; j < column; j++) {

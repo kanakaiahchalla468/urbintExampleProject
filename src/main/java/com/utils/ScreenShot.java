@@ -19,7 +19,8 @@ public class ScreenShot {
         dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
         // To Store the screen shot in out put file
         File source = ts.getScreenshotAs(OutputType.FILE);
-        String destinationFile = System.getProperty("user.dir") + "\\reports\\Failure\\" +dateFormat.format(date)+ testName + ".png";
+        String destinationFile = System.getProperty("user.dir") + "\\ScreenShot\\Failure\\" + dateFormat.format(date)
+                + testName + ".png";
         // Screenshot is in Virtual location and to copy the file in th our system
         // Apacheio
         try {
@@ -31,15 +32,17 @@ public class ScreenShot {
 
         return destinationFile;
     }
+
     public static String takeScreenShotOnSuccess(String testName, WebDriver driver) {
         TakesScreenshot ts = (TakesScreenshot) driver;
         date = new Date();
         dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
         // To Store the screen shot in out put file
         File source = ts.getScreenshotAs(OutputType.FILE);
-        String destinationFile = System.getProperty("user.dir") + "\\reports\\Success\\" +dateFormat.format(date)+ testName + ".png";
+        String destinationFile = System.getProperty("user.dir") + "\\ScreenShot\\Success\\" + dateFormat.format(date)
+                + testName + ".png";
         // Screenshot is in Virtual location and to copy the file in th our system
-        // Apacheio
+
         try {
             FileUtils.copyFile(source, new File(destinationFile));
         } catch (Exception e) {

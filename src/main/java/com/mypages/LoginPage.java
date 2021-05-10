@@ -43,6 +43,15 @@ public class LoginPage extends base {
     private By knowledge = By.xpath("//a[@id='knowledgebase']");
     private By contactUs = By.xpath("//a[@id='contactus']");
 
+    public WebElement getUserRemeberMeCheckBox()
+    {
+        return driver.findElement(userRemeberMeCheckBox);
+    }
+    public WebElement getLoginLabelMessage()
+    {
+       return driver.findElement(loginLabelMessage);
+    }
+
     public WebElement getUserName() {
         return driver.findElement(userNameInput);
     }
@@ -164,5 +173,21 @@ public class LoginPage extends base {
         }
 
     }
+    public void verifyUserRemeberMeCheckBoxisntSelected()
+    {
+        try
+        {
+            Assert.assertFalse(VerifyElementChecked(getUserRemeberMeCheckBox()));
+            System.out.println("UserRemeberMeCheckBox isnt Selected by default");
+        }
+        catch (Exception e)
+        {
+            System.out.println("UserRemeberMeCheckBox is Selected by Default" + e.getMessage());
 
+        }
+    }
+public void verifyTextDisplayedAtRemeberMeCheckBox()
+{
+    verifyMessagePrompted(getLoginLabelMessage(), "Keep me signed in for 14 days");
+}
 }

@@ -80,8 +80,8 @@ public class base {
     }
 
     public void verifyMessagePrompted(WebElement element, String expected) {
-        String Error = element.getText();
-        Assert.assertTrue(Error.contains(expected), "Message Provided not matched with the Actual Result");
+        String message = element.getText();
+        Assert.assertTrue(message.contains(expected), "Message Provided not matched with the Actual Result");
     }
 
     public String getPageTitle() {
@@ -112,6 +112,10 @@ public class base {
         } catch (Exception e) {
             System.out.println("some exception/error occurred while waiting for the element " + title);
         }
+    }
+    public boolean VerifyElementChecked(WebElement element)
+    {
+      return element.isSelected();
     }
 
 

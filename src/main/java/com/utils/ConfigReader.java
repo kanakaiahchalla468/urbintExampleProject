@@ -11,16 +11,16 @@ public class ConfigReader {
 
     // make method as static
     public static void getProperties() {
-        try 
+        try
         {
             String projectPath = System.getProperty("user.dir");
-            File src = new File(projectPath+"/Config/Data.properties");
+            File src = new File(projectPath+"/Utilities/Data.properties");
             FileInputStream fis = new FileInputStream(src);
             prop = new Properties();
             prop.load(fis);
-            
-        } 
-        catch (Exception e) 
+
+        }
+        catch (Exception e)
         {
             System.out.println("Exception is" + e.getMessage());
         }
