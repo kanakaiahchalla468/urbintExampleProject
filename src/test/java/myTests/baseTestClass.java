@@ -88,6 +88,18 @@ public class baseTestClass extends base {
         login.LoginCrdentails(username, password);
         verifyMessagePrompted(login.ErrorMessage(), "Invalid Login or password.");
     }
+    @Test(dataProvider = "inValidLoginCredentials")
+    public void VerifyLoginWithJustUserName(String username, String password) {
+        LoginPage login = new LoginPage(driver);
+        login.LoginWithSingleUserName(username);
+        verifyMessagePrompted(login.ErrorMessage(), "Invalid Login or password.");
+    }
+    @Test(dataProvider = "inValidLoginCredentials")
+    public void VerifyLoginWithJustPassword(String username, String password) {
+        LoginPage login = new LoginPage(driver);
+        login.LoginWithSinglePassword(password);
+        verifyMessagePrompted(login.ErrorMessage(), "Invalid Login or password.");
+    }
 /**
  *
  * @param keyword

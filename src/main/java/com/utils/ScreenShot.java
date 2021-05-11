@@ -1,3 +1,9 @@
+/**
+* @description Defined for taking Screen shot
+* @author Kanakaiah Challa
+* @date 09/05/2021
+*
+*/
 package com.utils;
 
 import java.io.File;

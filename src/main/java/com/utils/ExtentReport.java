@@ -1,3 +1,9 @@
+/**
+* @description Defined for generating the Report using extent reports 
+* @author Kanakaiah Challa
+* @date 09/05/2021
+*
+*/
 package com.utils;
 
 import java.text.SimpleDateFormat;

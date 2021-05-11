@@ -17,52 +17,57 @@ import org.testng.Assert;
 
 public class DiscussionPage extends base {
 
-    private WebDriver driver;
+	private WebDriver driver;
 
-    public DiscussionPage(WebDriver driver) {
-        this.driver = driver;
-    }
+	public DiscussionPage(WebDriver driver) {
+		this.driver = driver;
+	}
 
-    By searchButton = By.xpath("//a[@id='search-button']");
+	By searchButton = By.xpath("//a[@id='search-button']");
 
-    By searchTerm = By.xpath("//input[@id='search-term']");
+	By searchTerm = By.xpath("//input[@id='search-term']");
 
-    By textRelatedToTopic = By.xpath("//div[@class='topic']/following-sibling::div//span[@class='ember-view']");
+	By textRelatedToTopic = By.xpath("//div[@class='topic']/following-sibling::div//span[@class='ember-view']");
 
-    public WebElement getSearchButton() {
-        return driver.findElement(searchButton);
-    }
+	public WebElement getSearchButton() {
+		return driver.findElement(searchButton);
+	}
 
-    public WebElement getSearchTerm() {
-        return driver.findElement(searchTerm);
-    }
+	public WebElement getSearchTerm() {
+		return driver.findElement(searchTerm);
+	}
 
-    public WebElement textRelatedToTopic() {
-        return driver.findElement(textRelatedToTopic);
-    }
+	public WebElement textRelatedToTopic() {
+		return driver.findElement(textRelatedToTopic);
+	}
 
-    public void VerifySearchResults(String keyword) {
-        getSearchButton().click();
-        getSearchTerm().sendKeys(keyword);
-        getSearchTerm().sendKeys(Keys.ENTER);
-        List<WebElement> results = driver.findElements(textRelatedToTopic);
+	/**
+	 * Verifies the search results displayed search page and the count.
+	 * 
+	 * @param keyword
+	 */
+	public void VerifySearchResults(String keyword) {
+		getSearchButton().click();
+		getSearchTerm().sendKeys(keyword);
+		getSearchTerm().sendKeys(Keys.ENTER);
+		List<WebElement> results = driver.findElements(textRelatedToTopic);
 
-        int numberOfResults = results.size();
+		int numberOfResults = results.size();
 
-        for (int i = 0; i < numberOfResults; i++) {
+		for (int i = 0; i < numberOfResults; i++) {
 
-            Assert.assertTrue(results.get(i).getText().toLowerCase().contains("mabl"),
-                    "Search result validation failed at instance" + i);
+			Assert.assertTrue(results.get(i).getText().toLowerCase().contains("mabl"),
+					"Search result validation failed at instance" + i);
 
-        }
-        String expectedMessage = driver.findElement(By.xpath("//div[@id='search-result-count']/span")).getText();
+		}
+		String expectedMessage = driver.findElement(By.xpath("//div[@id='search-result-count']/span")).getText();
 
-        String actualMessage = numberOfResults + " results for";
-        Assert.assertEquals(actualMessage, expectedMessage);
-    }
-    public void waitForSearchIconDisplayed()
-    {
-       waitForElementPresent(searchButton);
-    }
+		String actualMessage = numberOfResults + " results for";
+		Assert.assertEquals(actualMessage, expectedMessage);
+	}
+
+	public void waitForSearchIconDisplayed() {
+		waitForElementPresent(searchButton);
+	}
 
 }
